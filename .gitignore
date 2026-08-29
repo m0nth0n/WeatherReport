@@ -1,0 +1,4 @@
+.DS_Store
+DB/*.db-journal
+DB/*.db-wal
+DB/*.db-shm

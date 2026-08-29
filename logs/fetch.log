@@ -1,0 +1,31 @@
+2026-08-29 21:22:25,206 [INFO] Bangkok: OK, 168 rows (1.41s)
+2026-08-29 21:22:26,569 [INFO] Chiang Mai: OK, 168 rows (1.36s)
+2026-08-29 21:22:27,603 [INFO] Phuket: OK, 168 rows (1.03s)
+2026-08-29 21:22:28,639 [INFO] Khon Kaen: OK, 168 rows (1.04s)
+2026-08-29 21:22:29,825 [INFO] Hat Yai: OK, 168 rows (1.19s)
+2026-08-29 21:22:29,825 [INFO] Run complete: 5/5 cities succeeded, 840 rows written, 6.03s elapsed
+2026-08-29 21:22:31,186 [INFO] Bangkok: OK, 168 rows (1.24s)
+2026-08-29 21:22:32,544 [INFO] Chiang Mai: OK, 168 rows (1.36s)
+2026-08-29 21:22:33,587 [INFO] Phuket: OK, 168 rows (1.04s)
+2026-08-29 21:22:34,644 [INFO] Khon Kaen: OK, 168 rows (1.06s)
+2026-08-29 21:22:35,694 [INFO] Hat Yai: OK, 168 rows (1.05s)
+2026-08-29 21:22:35,695 [INFO] Run complete: 5/5 cities succeeded, 840 rows written, 5.75s elapsed
+2026-08-29 21:22:36,960 [INFO] Bangkok: OK, 168 rows (1.14s)
+2026-08-29 21:22:38,138 [INFO] Chiang Mai: OK, 168 rows (1.18s)
+2026-08-29 21:22:39,367 [INFO] Phuket: OK, 168 rows (1.23s)
+2026-08-29 21:22:40,628 [INFO] Khon Kaen: OK, 168 rows (1.26s)
+2026-08-29 21:22:41,745 [INFO] Hat Yai: OK, 168 rows (1.12s)
+2026-08-29 21:22:41,745 [INFO] Run complete: 5/5 cities succeeded, 840 rows written, 5.92s elapsed
+2026-08-29 21:22:51,164 [WARNING] Bangkok: attempt 1/3 failed (HTTP 400: Bad Request), retrying...
+2026-08-29 21:22:54,251 [WARNING] Bangkok: attempt 2/3 failed (HTTP 400: Bad Request), retrying...
+2026-08-29 21:23:08,197 [INFO] Bangkok: OK, 168 rows (1.29s)
+2026-08-29 21:23:09,461 [ERROR] BrokenCity: FAILED - HTTP 400: Bad Request (1.26s)
+2026-08-29 21:23:10,820 [INFO] Phuket: OK, 168 rows (1.36s)
+2026-08-29 21:23:10,820 [INFO] Run complete: 2/3 cities succeeded, 336 rows written, 3.91s elapsed
+2026-08-29 21:23:10,820 [ERROR]   failed: BrokenCity (HTTP 400: Bad Request)
+2026-08-29 21:23:24,780 [INFO] Bangkok: OK, 168 rows (1.08s)
+2026-08-29 21:23:26,027 [INFO] Chiang Mai: OK, 168 rows (1.25s)
+2026-08-29 21:23:27,289 [INFO] Phuket: OK, 168 rows (1.26s)
+2026-08-29 21:23:28,428 [INFO] Khon Kaen: OK, 168 rows (1.14s)
+2026-08-29 21:23:29,494 [INFO] Hat Yai: OK, 168 rows (1.06s)
+2026-08-29 21:23:29,494 [INFO] Run complete: 5/5 cities succeeded, 840 rows written, 5.79s elapsed
