@@ -86,7 +86,7 @@ def fetch_forecast(url, city, logger):
 
     raise RuntimeError(last_error)
 
-#Convert to string
+#Create tables if needed, migrate in new columns
 def apply_schema(conn):
     with open(SCHEMA_PATH, "r", encoding="utf-8") as f:
         conn.executescript(f.read())
@@ -151,7 +151,7 @@ def process_city(conn, city, lat, lon, run_date):
 
     return len(rows)
 
-#SQLite
+#Run the pipeline for every city and log a summary
 def main():
     logger = setup_logging()
     start = time.monotonic()

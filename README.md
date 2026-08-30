@@ -7,6 +7,12 @@ into SQLite, and displays it with a Streamlit dashboard.
 **Cities:** Bangkok, Chiang Mai, Phuket, Khon Kaen, Hat Yai
 **API:** Open-Meteo forecast endpoint — used as recommended; free and keyless,
 which is all this needs.
+**Live app:** https://city-weather-report.streamlit.app/ — deployed on
+Streamlit Community Cloud from this repo. Note: the deployed app serves
+whatever `DB/weather.db` was committed at deploy time; it doesn't run
+`ReadyAPI.py` on a schedule, so the data is a snapshot rather than
+continuously refreshed (see "What I'd change for hourly-forever operation"
+below).
 
 ## Project layout
 
@@ -164,6 +170,10 @@ they reflect "the current forecast," not the accumulated history.
 ### AI tool usage
 
 This session used Claude Code (Anthropic) to: find and fix a bug where
+`ReadyAPI.py` pointed at `schema.sql` instead of the actual `Schema/schema.sql`
 path (pipeline was failing on a fresh clone); write the raw SQL for the 4
+required analyses and capture their real output into `SQL/results.md`; add
+`requirements.txt`; take the dashboard screenshots via browser automation; and
 write this README. The ingestion script, schema, and Streamlit pages predate
-this session — adjust this section if you want to describe how those were built.
+this session — adjust this section if you want to describe how those were
+built.

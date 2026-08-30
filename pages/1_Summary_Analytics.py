@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 
 from weather_data import load_weather
@@ -8,6 +9,12 @@ df = load_weather()
 
 st.title("Summary Analytics")
 st.caption("Aggregated stats across all 5 cities")
+
+# `weather` can hold more than 7 days of history (each day's run adds a new
+# day without deleting the last one that fell out of the window) - restrict
+# to the current 7-day forecast window so these numbers match SQL/results.md.
+today = pd.Timestamp.now().normalize()
+df = df[(df["time"] >= today) & (df["time"] < today + pd.Timedelta(days=7))]
 
 daily = (
     df.assign(day=df["time"].dt.date)

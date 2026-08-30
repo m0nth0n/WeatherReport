@@ -6,7 +6,7 @@ Queries: [`queries.sql`](queries.sql). Run against `DB/weather.db` on 2026-08-30
 sqlite3 -header -markdown DB/weather.db < SQL/queries.sql
 ```
 
-All four queries restrict to the current 7-day forecast window (`date('now')` .. `date('now', '+6 days')`) — see the note at the top of `queries.sql` for why the table can otherwise hold more than 7 days of data.
+All four queries restrict to the current 7-day forecast window (`date('now')` .. `date('now', '+6 days')`) — see "Idempotency" in the main README for why the table can otherwise hold more than 7 days of data.
 
 ## 1. Average / max / min temperature per city per day
 
