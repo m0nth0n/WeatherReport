@@ -1,15 +1,5 @@
 #!/usr/bin/env python3
-"""
-Fetch 7-day hourly forecasts for a set of Thai cities from Open-Meteo and
-load them into DB/weather.db (SQLite).
-
-- Raw API responses are kept as-is in raw_responses before any transform.
-- Transformed hourly readings are upserted into weather.
-- Idempotent: re-running the script does not inflate row counts.
-- Per-city fetch/transform/load is transactional and retried on failure;
-  one city failing does not crash the run or affect other cities.
-"""
-
+#Import Library
 import json
 import logging
 import os
@@ -19,11 +9,13 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
+#Path
 DB_PATH = "DB/weather.db"
-SCHEMA_PATH = "schema.sql"
+SCHEMA_PATH = "Schema/schema.sql"
 LOG_DIR = "logs"
 LOG_PATH = os.path.join(LOG_DIR, "fetch.log")
 
+#Location of City that require
 LOCATIONS = {
     "Bangkok":    (13.7563, 100.5018),
     "Chiang Mai": (18.7883, 98.9853),
@@ -37,7 +29,7 @@ TIMEOUT_SECONDS = 15
 MAX_ATTEMPTS = 3
 RETRY_BACKOFF_SECONDS = 2
 
-
+#Record of Logs
 def setup_logging():
     os.makedirs(LOG_DIR, exist_ok=True)
     logger = logging.getLogger("weather_etl")
@@ -64,7 +56,7 @@ def build_url(lat, lon):
         f"&forecast_days={FORECAST_DAYS}&timezone=Asia/Bangkok"
     )
 
-
+#Forecast and Check error
 def fetch_forecast(url, city, logger):
     """Fetch a URL with retries on timeout/connection/HTTP errors. Raises on final failure."""
     last_error = None
@@ -94,20 +86,19 @@ def fetch_forecast(url, city, logger):
 
     raise RuntimeError(last_error)
 
-
+#Convert to string
 def apply_schema(conn):
     with open(SCHEMA_PATH, "r", encoding="utf-8") as f:
         conn.executescript(f.read())
     conn.commit()
 
-    # Migration: add precipitation_probability to a weather table created
-    # before this column existed. No-op if the column is already there.
+    #Add precipitation_probability to a weather table created
     cols = [row[1] for row in conn.execute("PRAGMA table_info(weather)").fetchall()]
     if "precipitation_probability" not in cols:
         conn.execute("ALTER TABLE weather ADD COLUMN precipitation_probability REAL")
         conn.commit()
 
-
+#Setup
 def process_city(conn, city, lat, lon, run_date):
     """Fetch, validate, and upsert one city's forecast in a single transaction.
     Raises on any failure; caller is responsible for logging/continuing."""
@@ -160,7 +151,7 @@ def process_city(conn, city, lat, lon, run_date):
 
     return len(rows)
 
-
+#SQLite
 def main():
     logger = setup_logging()
     start = time.monotonic()

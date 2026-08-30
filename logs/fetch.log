@@ -41,3 +41,21 @@
 2026-08-29 23:11:47,672 [INFO] Khon Kaen: OK, 168 rows (1.06s)
 2026-08-29 23:11:48,712 [INFO] Hat Yai: OK, 168 rows (1.04s)
 2026-08-29 23:11:48,712 [INFO] Run complete: 5/5 cities succeeded, 840 rows written, 5.42s elapsed
+2026-08-30 16:23:57,623 [INFO] Bangkok: OK, 168 rows (1.23s)
+2026-08-30 16:23:59,299 [INFO] Chiang Mai: OK, 168 rows (1.67s)
+2026-08-30 16:24:00,874 [INFO] Phuket: OK, 168 rows (1.58s)
+2026-08-30 16:24:02,038 [INFO] Khon Kaen: OK, 168 rows (1.16s)
+2026-08-30 16:24:03,245 [INFO] Hat Yai: OK, 168 rows (1.21s)
+2026-08-30 16:24:03,246 [INFO] Run complete: 5/5 cities succeeded, 840 rows written, 6.85s elapsed
+2026-08-30 16:24:36,206 [INFO] Bangkok: OK, 168 rows (1.60s)
+2026-08-30 16:24:37,566 [INFO] Chiang Mai: OK, 168 rows (1.36s)
+2026-08-30 16:24:38,670 [INFO] Phuket: OK, 168 rows (1.10s)
+2026-08-30 16:24:40,199 [INFO] Khon Kaen: OK, 168 rows (1.53s)
+2026-08-30 16:24:41,336 [INFO] Hat Yai: OK, 168 rows (1.14s)
+2026-08-30 16:24:41,337 [INFO] Run complete: 5/5 cities succeeded, 840 rows written, 6.74s elapsed
+2026-08-30 16:24:42,779 [INFO] Bangkok: OK, 168 rows (1.36s)
+2026-08-30 16:24:44,046 [INFO] Chiang Mai: OK, 168 rows (1.27s)
+2026-08-30 16:24:45,163 [INFO] Phuket: OK, 168 rows (1.12s)
+2026-08-30 16:24:46,444 [INFO] Khon Kaen: OK, 168 rows (1.28s)
+2026-08-30 16:24:47,614 [INFO] Hat Yai: OK, 168 rows (1.17s)
+2026-08-30 16:24:47,614 [INFO] Run complete: 5/5 cities succeeded, 840 rows written, 6.20s elapsed
