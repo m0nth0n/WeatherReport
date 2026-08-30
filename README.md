@@ -170,7 +170,6 @@ they reflect "the current forecast," not the accumulated history.
 ### AI tool usage
 
 This session used Claude Code (Anthropic) to: find and fix a bug where
-`ReadyAPI.py` pointed at `schema.sql` instead of the actual `Schema/schema.sql`path 
-(pipeline was failing on a fresh clone); write this README. The ingestion script,
+`ReadyAPI.py` pointed at `schema.sql` and write this README. The ingestion script,
 schema, and Streamlit pages predate this session — adjust this section 
 if you want to describe how those were built.
