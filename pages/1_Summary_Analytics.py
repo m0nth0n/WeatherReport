@@ -24,6 +24,25 @@ if df.empty:
     )
     st.stop()
 
+st.subheader("Top Stats")
+avg_by_city = df.groupby("city")["temperature"].mean()
+max_by_city = df.groupby("city")["temperature"].max()
+min_by_city = df.groupby("city")["temperature"].min()
+top_avg_city = avg_by_city.idxmax()
+top_max_city = max_by_city.idxmax()
+top_min_city = min_by_city.idxmin()
+col1, col2, col3 = st.columns(3)
+col1.metric(f"Highest Avg Temp: {top_avg_city}", f"{avg_by_city[top_avg_city]:.1f} °C")
+col2.metric(f"Highest Max Temp: {top_max_city}", f"{max_by_city[top_max_city]:.1f} °C")
+col3.metric(f"Lowest Min Temp: {top_min_city}", f"{min_by_city[top_min_city]:.1f} °C")
+
+st.subheader("Raw Data (Recent)")
+city_options = ["All Cities"] + sorted(df["city"].unique())
+selected_city = st.selectbox("City", city_options)
+recent_df = df if selected_city == "All Cities" else df[df["city"] == selected_city]
+recent_df = recent_df.sort_values("time", ascending=False).head(5)
+st.dataframe(recent_df, width="stretch")
+
 daily = (
     df.assign(day=df["time"].dt.date)
     .groupby(["city", "day"])["temperature"]
