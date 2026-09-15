@@ -16,6 +16,14 @@ st.caption("Aggregated stats across all 5 cities")
 today = pd.Timestamp.now().normalize()
 df = df[(df["time"] >= today) & (df["time"] < today + pd.Timedelta(days=7))]
 
+if df.empty:
+    st.warning(
+        "No weather data falls within the current 7-day window "
+        f"(today is {today.date()}). The snapshot in DB/weather.db is stale — "
+        "run ReadyAPI.py to refresh it."
+    )
+    st.stop()
+
 daily = (
     df.assign(day=df["time"].dt.date)
     .groupby(["city", "day"])["temperature"]
