@@ -1,4 +1,4 @@
-dmport pandas as pd
+import pandas as pd
 import streamlit as st
 
 from weather_data import load_weather
